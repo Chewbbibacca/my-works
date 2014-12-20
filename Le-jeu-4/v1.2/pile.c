@@ -19,11 +19,11 @@
 static t_coord pile[M][M];
 static int sommet[M];
 
-void initpile(int numPile){
+void pile_init(int numPile){
 	sommet[numPile]=-1;
 }
 
-void empiler(t_coord coord, int numPile){
+void pile_empiler(t_coord coord, int numPile){
 	if(sommet[numPile]<M-1){
 		sommet++;
 		pile[numPile][sommet].X=coord.X;
@@ -32,7 +32,7 @@ void empiler(t_coord coord, int numPile){
 	}
 }
 
-void depiler(t_coord *coord, int numPile){
+void pile_depiler(t_coord *coord, int numPile){
 	if(sommet[numPile]>-1){
 		coord->X=pile[numPile][sommet].X;
 		coord->Y=pile[numPile][sommet].Y;
@@ -40,7 +40,7 @@ void depiler(t_coord *coord, int numPile){
 	}
 }
 
-int sommet_pile(t_coord *coord, int numPile){
+int pile_sommet(t_coord *coord, int numPile){
 	if(sommet[numPile]>-1){
 		coord->X=pile[numPile][sommet].X;
 		coord->Y=pile[numPile][sommet].Y;
