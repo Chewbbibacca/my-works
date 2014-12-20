@@ -25,25 +25,25 @@ void pile_init(int numPile){
 
 void pile_empiler(t_coord coord, int numPile){
 	if(sommet[numPile]<M-1){
-		sommet++;
-		pile[numPile][sommet].X=coord.X;
-		pile[numPile][sommet].Y=coord.Y;
+		sommet[numPile]++;
+		pile[numPile][sommet[numPile]].X=coord.X;
+		pile[numPile][sommet[numPile]].Y=coord.Y;
 		//pile[sommet] = coord;
 	}
 }
 
 void pile_depiler(t_coord *coord, int numPile){
 	if(sommet[numPile]>-1){
-		coord->X=pile[numPile][sommet].X;
-		coord->Y=pile[numPile][sommet].Y;
-		sommet--;
+		coord->X=pile[numPile][sommet[numPile]].X;
+		coord->Y=pile[numPile][sommet[numPile]].Y;
+		sommet[numPile]--;
 	}
 }
 
 int pile_sommet(t_coord *coord, int numPile){
 	if(sommet[numPile]>-1){
-		coord->X=pile[numPile][sommet].X;
-		coord->Y=pile[numPile][sommet].Y;
+		coord->X=pile[numPile][sommet[numPile]].X;
+		coord->Y=pile[numPile][sommet[numPile]].Y;
 		return 1;
 	}
 	return 0;
